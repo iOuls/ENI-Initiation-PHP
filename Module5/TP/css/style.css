@@ -1,0 +1,82 @@
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: sans-serif;
+    font-size: 13px;
+    color: rgba(0, 0, 0, .75);
+    background-image: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw0PDw8QDw0ODQ0NDQ0NDQ0NDw8NDw0NFREWFhURExUYHSggGBolGxUVITEhJSkrLi4uFx8zODMtNyg5OisBCgoKDQ0NFg0NDisZFRkrKysrKystKysrKysrLSsrKysrKystKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAJcBTgMBIgACEQEDEQH/xAAZAAADAQEBAAAAAAAAAAAAAAAAAgMBBAf/xAApEAACAgEDBAICAgMBAAAAAAAAAQIRAxIxUSFBYXGBkbHBBNEiofAT/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/APYy+GdryiBsZU7A6hJ4k/DHTsAOWUWtzDraJaUtgEjDkdAAAkVSFghgIZ9/g3BPt9GZ9/gmB1izgn/YY5WvyMBzTxteUIdhOUUnsBKMB0jQACkULBDgTz7L2QTot/I2XsiB1RdqzWiGGdOuz/JcCU8PH0RaOsWcU90BzJWUjAYAA2KMKpAByPdnWcj3YFcE+30WORM6oStWBk8afvkhPG16OkAOMeMCsopPojAMSNAaCAaKoXJG6Xv9Dmd16f6A5QBqgArgn2+ixyHTjla/IDE5blCctwMNijCkUBoAAEM+/wAEymbeyYDY5U/Hc6TkLYJduAKiTHEmAoJAPBAMkAABLPsvZEvm6/ZAAOjFO15RzmwlTA6gYIGBIANirAaCGAAA5HuzrbOWSAwfFOn4YgAdYE8M7Vd0UASYo0xQNSKCwQwAZ3Xp/o0zv8P9AToRw4HACI2OVPx3HcbJyjQHUTluZgn24/BrXUDYIcxuhXIBnIRswAASUBwAi0CdFWhJQ4A6IytWLMnhnTrkpMDIooYugrnwAzdCORgABjVmgBKUKMLCygA2Cfb6Ks5WmjojK1YCFIoWCGcgNFcxWzABgAAJKHAjLGNATjKnZ1J2c0oDYZ9voCkzIo2e4y6AaY3QrmKBrkZqoBZgGtBrRMAKa0GtExlADbV9NyjnXbfuGOIsZdWns2wM1oNaGnh4+iLVAU1oNaJgBTWg1omAFNaDWiZqi2AzaZRT6Xv/ANuLCBuSVSXr/QCvIGtDyxp9V0Iyi1uA+tBrRMAKa0GtEwAprQa0TACmtBB8bPcyMOSmn/F+gMlkrp1QutDY2pKnuhZ4mtuqANaDWiYAU1oNaJgBTWg1omAFNaMbT9iqLZWEAN196EeRGylUvFKxp4k9ugCa0GtCSi1uYBTWg1ombFWBhsY2NGHI4CxikMA8EAyRyz3ftnUcs937YF8U7XlbjSinuc0JUzqTAhPE1t1RM6xJ40/YHOCQ/wD51uMkBkYDANFANBEc+/wXIZ9/gBsE+30VaORM6oStWBKeHj6JNHWZKCe4HKA8sTXo2MQFjD4HSo0ANihsmz9GxRmTZ+gOeMqdnUnZyFcM+30A88afsjODX9nSAHIBaeLj6EUOQESbKKAyAAKRQsEOBz59/ofDPsJm3+hE66gdbV7kZ4ePorF2rNA5Bse/wXnBMTHjp+KAAAANiihkUaAHLPd+2dRyz3ftgKXwT7fREEwOsDIStWaAkxRpigBVIWCGACGff4LkM+/wBMfFOn4YgAdYE8M7XlFAFmIPMQAGgjEigALk2foYXJs/QHMAAB045WvPcY5scqfjudIATZQmwMBIB4IBkgAAOfNv9CD5t/oQCmGdOuzLnIdGKdrygHAAAkNBCpFUAAK5Ctga5k5RsYAItUBYSUOADFOn4Z0HI0XwzteUBszIqzZjRQGgY5UI5AM5E5KzQAk4tGFhZQASMqdnUnZyNUVwT7fQFJiDz2FigGghgEcgHbJylZgAJKHAjLGNASLYZ304JygKnQHWTY8XasmwNirKGRVA5AaK5Ct2YBklZNxaKgBE2EqY0oCNAdaBkcE+30UmBkehjkLptWn17om21yBUCWp8hqfIFQJanyGp8gVAlqfIanyBRoVJp2hNT5HSfLAt037UY5CuPa6dWTkpICgEtT5DU+QKgS1PkNT5AqBLU+Q1PkCrEcOBNT5GjbAqpWvN9Rrom+iXl9fRk4PdO0AzYEtT5DU+QKgS1PkNT5AqBLU+Q1PkCosopianyCbApidOnsx1yJCLe7BLV3poB3IUnLUtzNT5AqBLU+Q1PkCoEtT5DU+QKmMnqfJmp8gO41sUcrSJRTY2RUl5AXFOn4Z0SinucpfDK1XH4ASeJrbqiZ1iTxp+HyBzgNODX9ipABsYtjRhyOAsY0UghUiqAjldS+Cqaa8Mjn3+Awzrpz+QNnh4+iTR1mSinuBygPPE15QgACQ0YcjpAZGA8UYUiqAnn2XsME+30GfZeyKYHTPGn7ITg1/Z0Qlas0DkAtPDx0ItNbgAGqLY6jQCxgOkaNBANFHOpU78nScj3YHV0a5RKeHj6DBPt9FgOQDplBPcjPG15QCAA0YcgKlZSMBqADYoz+R2+SiVC5I3Xz+gOc2LoAA6U7NAAAk1QAAAAAPBDAAEM+/wTAAOnFK0MAABOaVmgAoAADQQ4ABL+RsvZEAAfDKn4Z0AAAZJJoAAmAAAFUjAA05HuwAAOnHK1YAAwAAE5pWYAAA0EaADGd16f6MAD//Z");
+}
+
+.titre {
+    background-color: rgba(255, 255, 255, 0.85);
+    width: 100%;
+    text-align: center;
+    padding-top: 1em;
+    border-bottom: .2em solid rgba(0, 80, 100, .5);
+    border-radius: 15em;
+    color: rgb(0, 80, 100);
+}
+
+.btn {
+    background-color: rgba(30, 60, 100, .5);
+    border-radius: 5px;
+    border-style: solid;
+    border-color: darkblue;
+    border-width: 1px;
+    padding: .5em;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    width: 175px;
+}
+
+label, input {
+    width: 175px;
+}
+
+body, label, input {
+    margin: .15em;
+}
+
+legend {
+    font-size: 1.25em;
+    background: linear-gradient(darkblue, cadetblue);
+    color: white;
+    border: 1px solid darkblue;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, .25);
+    border-radius: 15px;
+    padding: .25em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+fieldset {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    border-radius: 1.5em;
+    border-color: aliceblue;
+    background-color: rgba(0, 80, 100, .15);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, .35);
+    margin-bottom: 1em;
+    padding: 1em;
+}
+
+h2 {
+    color: rgba(0, 80, 100, .75);
+}
+
+tr, td {
+    border: solid black 1px;
+    padding: .5em;
+    background-color: rgba(0, 0, 0, .25);
+    color: white;
+}
+
+legend {
+    text-align: center;
+    font-weight: bold;
+}
