@@ -13,6 +13,7 @@ $listeRestaurants = $cnx->listRestaurants();
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Reste au rang</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -20,7 +21,7 @@ $listeRestaurants = $cnx->listRestaurants();
 require_once 'header.php';
 ?>
 
-<h1>Vos restaurants préférés</h1>
+<h1>Restes aux rangs</h1><br>
 
 <?php
 
