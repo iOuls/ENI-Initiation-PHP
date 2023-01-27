@@ -11,8 +11,9 @@ class Restaurant
     private string $description;
     private array $avis;
 
-    public function __construct(int    $idRestaurant, string $nom, string $adresse = '', string $codePostal = '',
-                                string $ville, string $telephone = '', string $description = '', array $avis = [])
+    public function __construct(int    $idRestaurant, string $nom, string $ville,
+                                string $adresse = '', string $codePostal = '',
+                                string $telephone = '', string $description = '', array $avis = [])
     {
         $this->idRestaurant = $idRestaurant;
         $this->nom = $nom;

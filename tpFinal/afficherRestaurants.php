@@ -24,8 +24,9 @@ require_once 'header.php';
 
 <?php
 
-for ($i = 0; $i < $listeRestaurants->lenght; $i++) {
-    echo '<a href="?idRestaurant=' . $listeRestaurants[$i]->getIdRestaurant() . '"><h2>' . $listeRestaurants[$i]->getNom() . '</h2></a>';
+for ($i = 0; $i < count($listeRestaurants); $i++) {
+    echo '<a href="?idRestaurant=' . $listeRestaurants[$i]->getIdRestaurant()
+        . '"><h2>' . $listeRestaurants[$i]->getNom() . '</h2></a>';
     echo '<p><i>' . $listeRestaurants[$i]->getVille() . '</p></i>';
     echo '<p>' . $listeRestaurants[$i]->getDescription() . '</p>';
     echo '<hr>';

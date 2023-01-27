@@ -1,6 +1,7 @@
 <?php
 
 require_once 'Restaurant.class.php';
+require_once 'Avis.class.php';
 
 class Connexion extends PDO
 {
@@ -48,13 +49,13 @@ class Connexion extends PDO
             $i = 0;
             foreach ($resultats as $item => $restaurant) {
                 $listeRestaurants[$i] = new Restaurant($restaurant['idRestaurant'],
-                    $restaurant['nom'], $restaurant['adresse'], $restaurant['cp'], $restaurant['ville']
-                    , $restaurant['telephone'], $restaurant['descrition']);
+                    $restaurant['nom'], $restaurant['ville'], $restaurant['adresse'],
+                    $restaurant['cp'], $restaurant['telephone'], $restaurant['description']);
                 $i++;
             }
 
         } catch (PDOException $e) {
-            $e->getMessage();
+            echo $e->getMessage();
         }
         return $listeRestaurants;
     }
