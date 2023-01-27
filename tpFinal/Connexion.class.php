@@ -6,8 +6,19 @@ require_once 'Avis.class.php';
 class Connexion extends PDO
 {
     // liste des requêtes
-    private const SELECT_RESTAURANTS = 'SELECT idRestaurant, nom, adresse, cp, ville, telephone, description FROM restaurants;';
+    private const SELECT_RESTAURANTS =
+        'SELECT idRestaurant, nom, adresse, cp, ville, telephone, description 
+            FROM restaurants;';
 
+    private const SELECT_RESTAURANT =
+        'SELECT idRestaurant, nom, adresse, cp, ville, telephone, description 
+            FROM restaurants
+            WHERE idRestaurant = :idRestaurant;';
+
+    private const SELECT_AVIS_RESTAURANT =
+        'SELECT idRestaurant, idAvis, auteur, note, commentaire 
+            FROM avis
+            WHERE idRestaurant = :idRestaurant;';
 
     // infos de connexion
 
@@ -60,4 +71,49 @@ class Connexion extends PDO
         return $listeRestaurants;
     }
 
+    public function unResto($idRestaurantRech): Restaurant
+    {
+        $leResto = null;
+
+        try {
+            $cnx = new Connexion();
+            $pstmt = $cnx->connexion()->prepare(self::SELECT_RESTAURANT);
+            $pstmt->bindValue(':idRestaurant', $idRestaurantRech);
+            $pstmt->execute();
+            $restaurant = $pstmt->fetch();
+
+            $leResto = new Restaurant($restaurant['idRestaurant'],
+                $restaurant['nom'], $restaurant['ville'], $restaurant['adresse'],
+                $restaurant['cp'], $restaurant['telephone'], $restaurant['description']);
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+
+        return $leResto;
+    }
+
+    public function avisDUnResto($idRest): array
+    {
+        $listeAvis = [];
+        try {
+            $cnx = new Connexion();
+            $pstmt = $cnx->connexion()->prepare(self::SELECT_AVIS_RESTAURANT);
+            $pstmt->bindValue(':idRestaurant', $idRest);
+            $pstmt->execute();
+            $resultats = $pstmt->fetchAll();
+
+            $i = 0;
+            foreach ($resultats as $item => $avis) {
+                $listeAvis[$i] = new Avis($avis['idRestaurant'], $avis['idAvis'],
+                    $avis['note'],
+                    ($avis['auteur'] == null) ? '' : $avis['auteur'],
+                    $avis['commentaire']);
+                $i++;
+            }
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+        return $listeAvis;
+    }
 }
