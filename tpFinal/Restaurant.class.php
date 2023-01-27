@@ -25,7 +25,7 @@ class Restaurant
         $this->avis = $avis;
     }
 
-    public function setAvis(array $avis)
+    public function setAvis(array $avis): void
     {
         $this->avis = $avis;
     }
