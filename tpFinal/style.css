@@ -59,6 +59,7 @@ ul, li {
 .logo {
     max-width: 150px;
     text-align: center;
+    border-radius: 3px;
 }
 
 h1, h2 {
@@ -94,7 +95,7 @@ a {
     margin-bottom: 0;
 }
 
-.menu-element:hover, a:hover {
+.menu-element:hover {
     color: white;
     background-color: black;
     transition: 1s;
@@ -102,6 +103,23 @@ a {
 }
 
 .card-title:hover {
+    color: black;
+    background-color: rgba(255, 255, 255, .75);
+    transition: 1s;
+}
+
+.btn {
+    color: white;
+    font-weight: lighter;
+    background-color: black;
+    font-family: 'Broadway', sans-serif;
+    padding: .5em;
+    border-radius: .25em;
+    margin-top: 1em;
+    border: 1px solid black;
+}
+
+.btn:hover {
     color: black;
     background-color: rgba(255, 255, 255, .75);
     transition: 1s;

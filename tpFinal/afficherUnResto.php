@@ -42,10 +42,9 @@ $lesAvis = $cnx->avisDUnResto($_GET['idRestaurant']);
 
     for ($i = 0; $i < count($lesAvis); $i++) {
         echo '<p><div class="auteur">' .
-        ($lesAvis[$i]->getAuteur() != "" || $lesAvis[$i]->getAuteur() != null)
-            ? $lesAvis[$i]->getAuteur() : '<i>anonyme</i>' .
+        ($lesAvis[$i]->getAuteur() != '' || $lesAvis[$i]->getAuteur() != null)
+            ? '<b>' . $lesAvis[$i]->getAuteur() . '</b> ' : '<i>anonyme</i>' .
             '</div><br>';
-        echo '<br>';
         for ($j = 0; $j < 5; $j++) {
             if (($j + 1) <= $lesAvis[$i]->getNote()) {
                 echo '▣';
@@ -56,8 +55,9 @@ $lesAvis = $cnx->avisDUnResto($_GET['idRestaurant']);
 
         echo '<p>' . $lesAvis[$i]->getCommentaire() . '</p></p>';
     }
-
     ?>
+
+    <a class="btn" href="ajouterAvis.php?idRestaurant=<?= $leResto->getIdRestaurant() ?>">Ajouter un avis</a>
 </div>
 </body>
 </html>

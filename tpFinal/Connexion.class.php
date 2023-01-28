@@ -20,6 +20,13 @@ class Connexion extends PDO
             FROM avis
             WHERE idRestaurant = :idRestaurant;';
 
+    private const INSERT_AVIS =
+        'INSERT INTO avis (idRestaurant, idAvis, auteur, note, commentaire) VALUES
+           (:idRestaurant, :idAvis, :auteur, :note, :commentaire);';
+
+    private const SELECT_LAST_AVIS =
+        'SELECT max(idAvis) FROM avis;';
+
     // infos de connexion
 
     private static $dsn = 'mysql:host=localhost;dbname=restaurant';
@@ -115,5 +122,36 @@ class Connexion extends PDO
             echo $e->getMessage();
         }
         return $listeAvis;
+    }
+
+    public function lastAvis()
+    {
+        $idAvis = null;
+        try {
+            $cnx = new Connexion();
+            $stmt = $cnx->connexion()->query(self::SELECT_LAST_AVIS);
+            $stmt->execute();
+            $idAvis = $stmt->fetch();
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+        return $idAvis;
+    }
+
+    public function ajouterAvis(Avis $avis)
+    {
+        try {
+            $cnx = new Connexion();
+            $stmt = $cnx->connexion()->prepare(self::INSERT_AVIS);
+            $stmt->bindValue(':idRestaurant', $avis->getIdRestaurant());
+            $stmt->bindValue(':idAvis', $avis->getIdAvis());
+            $stmt->bindValue(':auteur', $avis->getAuteur());
+            $stmt->bindValue(':note', $avis->getNote());
+            $stmt->bindValue(':commentaire', $avis->getCommentaire());
+            $stmt->execute();
+            echo 'Avis enregistré avec succès.';
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
     }
 }
