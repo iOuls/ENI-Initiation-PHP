@@ -29,16 +29,20 @@ $leResto = $cnx->unResto($_GET['idRestaurant']);
     <h1 class="titreResto">Ajouter un avis sur <?= $leResto->getNom() ?></h1>
 
     <form method="POST" action="">
-        <label for="nom">Pseudo </label>
-        <input type="text" name="nom" id="nom"><br>
+        <div class='container'>
+            <div class="menu">
+                <label for="nom">Pseudo </label><br><br>
+                <label for="note">Note </label><br><br>
+                <label for="commentaire">Commentaire </label>
+            </div>
+            <div class="contenu">
+                <input type="text" name="nom" id="nom"><br><br>
+                <input type="range" min="0" max="5" name="note" id="note"><br><br>
+                <textarea name="commentaire" id="commentaire" cols="30" rows="10"></textarea>
+            </div>
+        </div>
+        <input class='btn' type="submit" name="envoyer" value="Envoyer l'avis"><br><br>
 
-        <label for="note">Note </label>
-        <input type="range" min="0" max="5" name="note" id="note"><br>
-
-        <label for="commentaire">Commentaire </label>
-        <input type="text" name="commentaire" id="commentaire"><br>
-
-        <input type="submit" name="envoyer" value="Envoyer l'avis">
 
         <?php
         if (isset($_POST['envoyer'])) {
