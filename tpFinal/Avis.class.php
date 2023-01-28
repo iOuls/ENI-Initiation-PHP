@@ -9,7 +9,7 @@ class Avis
     private string $commentaire;
 
     public function __construct(int    $idRestaurant, int $idAvis, int $note,
-                                string $auteur, string $commentaire = '')
+                                string $auteur = null, string $commentaire = '')
     {
         $this->idRestaurant = $idRestaurant;
         $this->idAvis = $idAvis;

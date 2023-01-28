@@ -15,24 +15,25 @@ $listeRestaurants = $cnx->listRestaurants();
     <title>Reste au rang</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="container">
 
-<?php
-require_once 'header.php';
-?>
+<div class="menu">
+    <?php
+    require_once 'header.php';
+    ?>
+</div>
 
-<h1>Restes aux rangs</h1><br>
+<div class="contenu">
+    <h1>Les restos</h1>
 
-<?php
-
-for ($i = 0; $i < count($listeRestaurants); $i++) {
-    echo '<a href="afficherUnResto.php?idRestaurant=' . $listeRestaurants[$i]->getIdRestaurant()
-        . '"><h2>' . $listeRestaurants[$i]->getNom() . '</h2></a>';
-    echo '<p><i>' . $listeRestaurants[$i]->getVille() . '</p></i>';
-    echo '<p>' . $listeRestaurants[$i]->getDescription() . '</p>';
-    echo '<hr>';
-}
-?>
-
+    <?php
+    for ($i = 0; $i < count($listeRestaurants); $i++) {
+        echo '<a href="afficherUnResto.php?idRestaurant=' . $listeRestaurants[$i]->getIdRestaurant()
+            . '"><h2 class="card-title">' . $listeRestaurants[$i]->getNom() . '</h2></a>';
+        echo '<div class="card"><i>' . $listeRestaurants[$i]->getVille() . '</i>';
+        echo '<p>' . $listeRestaurants[$i]->getDescription() . '</p></div>';
+    }
+    ?>
+</div>
 </body>
 </html>

@@ -17,31 +17,47 @@ $lesAvis = $cnx->avisDUnResto($_GET['idRestaurant']);
     <title><?= $leResto->getNom() ?> - Reste au rang</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="container">
 
-<?php
-require_once 'header.php';
-?>
+<div class="menu">
+    <?php
+    require_once 'header.php';
+    ?>
+</div>
 
-<h1><?= $leResto->getNom() ?></h1>
+<div class="contenu">
 
-<p><?= $leResto->getAdresse() ?><br>
-    <?= $leResto->getCodePostal() ?> <?= $leResto->getVille() ?><br>
-    <?= $leResto->getTelephone() ?>
-</p>
+    <h1 class="titreResto"><?= $leResto->getNom() ?></h1>
 
-<h2>Description</h2>
-<p><?= $leResto->getDescription() ?></p>
+    <p><?= $leResto->getAdresse() ?><br>
+        <?= $leResto->getCodePostal() ?> <?= $leResto->getVille() ?><br>
+        <?= $leResto->getTelephone() ?>
+    </p>
 
-<h2>Avis</h2>
-<?php
+    <h2>Description</h2>
+    <p><?= $leResto->getDescription() ?></p>
 
-for ($i = 0; $i < count($lesAvis); $i++) {
-    echo '<p>' . ($lesAvis[$i]->getAuteur() != null) ? $lesAvis[$i]->getAuteur() : '<i>anonyme</i>' . '<br>';
-    echo $lesAvis[$i]->getCommentaire() . '</p>';
-}
+    <h2>Avis</h2>
+    <?php
 
-?>
+    for ($i = 0; $i < count($lesAvis); $i++) {
+        echo '<p><div class="auteur">' .
+        ($lesAvis[$i]->getAuteur() != "" || $lesAvis[$i]->getAuteur() != null)
+            ? $lesAvis[$i]->getAuteur() : '<i>anonyme</i>' .
+            '</div><br>';
+        echo '<br>';
+        for ($j = 0; $j < 5; $j++) {
+            if (($j + 1) <= $lesAvis[$i]->getNote()) {
+                echo '▣';
+            } else {
+                echo '▢';
+            }
+        }
 
+        echo '<p>' . $lesAvis[$i]->getCommentaire() . '</p></p>';
+    }
+
+    ?>
+</div>
 </body>
 </html>
